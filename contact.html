@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontur: Contact Us</title>
+    <link rel="stylesheet" href="homestyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-Wpi5f/+MBvg8WJ5Wt5u9rKmy1c2IDuU/5zg6v3JuUcEmuqWlhfHsi+yVJc23myQIDxGlhqP3uPOJHtY/2bDn3A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" href="assets/favicon.png">
+</head>
+<body>
+    <div class="dropdown">
+        <button class="dropbtn">MENU</button>
+        <div class="dropdown-content">
+            <a href="index.html">RETURN</a>
+            <a href="home.html">HOME</a>
+            <a href="gallery.html">GALLERY</a>
+            <a href="FAQ.html">FAQ</a>
+            <a href="contact.html">CONTACT US</a>
+        </div>
+    </div>
+
+    <header>
+        <a href="home.html">
+            <img src="assets/logo.png" alt="Header Image">
+        </a>
+    </header>
+    <h2>SEND US A MESSAGE</h2>
+    <form id="contact-form">
+        <input type="text" name="name" placeholder="Your Name"><br>
+        <input type="email" name="email" placeholder="Your Email"><br>
+        <textarea name="message" placeholder="Your Message"></textarea><br>
+        <button type="submit">Send</button>
+    </form>
+
+    <section>
+        <h2>CONTACT US</h2>
+        <div class="contact-info">
+            <h3>Based In</h3>
+            <p>Toronto, Ontario, Canada</p>
+        </div>
+    
+        <div class="contact-info">
+            <h3>Hours</h3>
+            <p>Monday - Friday: 10am - 7pm</p>
+        </div>
+    
+        <div class="contact-info">
+            <h3>Phone</h3>
+            <p>+1 (437) 450 5767</p>
+        </div>
+    
+        <div class="contact-info">
+            <h3>Email</h3>
+            <p>konturdesigns@gmail.com</p>
+        </div>
+
+        <a href="#top">
+            <img src="assets/arrow.png">
+        </a>
+
+    <footer>
+        <p>&copy; Kontur Design. All rights reserved.</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" defer></script>
+    <script>
+        (function() {
+            emailjs.init({
+                publicKey: "YOUR_PUBLIC_KEY",
+            });
+        })();
+
+        window.onload = function() {
+            document.getElementById('contact-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+                // these IDs from the previous steps
+                emailjs.sendForm('contact_service', 'contact_form', this)
+                    .then(() => {
+                        console.log('SUCCESS!');
+                    }, (error) => {
+                        console.log('FAILED...', error);
+                    });
+            });
+        }
+    </script>
+</body>
+</html>
