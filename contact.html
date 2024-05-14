@@ -28,6 +28,7 @@
         <form id="contact-form">
             <input type="text" name="name" placeholder="Your Name"><br>
             <input type="email" name="email" placeholder="Your Email"><br>
+            <input type="text" name="subject" placeholder="Subject"><br>
             <textarea name="message" placeholder="Your Message"></textarea><br>
             <button type="submit">Send</button>
         </form>
@@ -38,6 +39,7 @@
                 const submitBtn = document.querySelector("button[type='submit']");
                 const nameInput = document.querySelector("input[name='name']");
                 const emailInput = document.querySelector("input[name='email']");
+                const subjectInput = document.querySelector("input[name='subject']");
                 const messageInput = document.querySelector("textarea[name='message']");
         
                 // Public Key, Service ID, and Template ID
@@ -56,10 +58,11 @@
                     // Change button text
                     submitBtn.innerText = "Just A Moment...";
         
-                    // Get all input field values
+                    // Get all input field values including subject
                     const inputFields = {
                         name: nameInput.value,
                         email: emailInput.value,
+                        subject: subjectInput.value,
                         message: messageInput.value
                     };
         
@@ -83,7 +86,8 @@
                         });
                 });
             });
-        </script>
+        </script>        
+        
     </header>
 
     <section>
