@@ -69,19 +69,19 @@
         </a>
 
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" defer></script>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script>
         (function() {
             emailjs.init({
-                publicKey: "YOUR_PUBLIC_KEY",
+                user_id: "GQlOyAAikPDCKaE9x",
             });
         })();
-
+    
         window.onload = function() {
             document.getElementById('contact-form').addEventListener('submit', function(event) {
                 event.preventDefault();
-                // these IDs from the previous steps
-                emailjs.sendForm('contact_service', 'contact_form', this)
+                // IDs
+                emailjs.sendForm('service_sjn2h6b', 'template_wh4gvaa', this)
                     .then(() => {
                         console.log('SUCCESS!');
                     }, (error) => {
@@ -89,6 +89,6 @@
                     });
             });
         }
-    </script>
+    </script>    
 </body>
 </html>
