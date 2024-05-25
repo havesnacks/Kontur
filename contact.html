@@ -28,10 +28,12 @@
         <form id="contact-form">
             <input type="text" name="name" placeholder="Your Name"><br>
             <input type="email" name="email" placeholder="Your Email"><br>
+            <input type="text" name="phone" placeholder="Your Phone Number"><br>
             <input type="text" name="subject" placeholder="Subject"><br>
             <textarea name="message" placeholder="Your Message"></textarea><br>
             <button type="submit">Send</button>
         </form>
+        
         <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
         <script>
             document.addEventListener("DOMContentLoaded", function () {
@@ -39,55 +41,71 @@
                 const submitBtn = document.querySelector("button[type='submit']");
                 const nameInput = document.querySelector("input[name='name']");
                 const emailInput = document.querySelector("input[name='email']");
+                const phoneInput = document.querySelector("input[name='phone']");
                 const subjectInput = document.querySelector("input[name='subject']");
                 const messageInput = document.querySelector("textarea[name='message']");
-        
+                
                 // Public Key, Service ID, and Template ID
                 const publickey = "GQlOyAAikPDCKaE9x";
                 const serviceID = "service_x3zsr7h";
                 const templateID = "template_wh4gvaa";
-        
+                
                 // Initialize emailJS with public key
                 emailjs.init(publickey);
-        
+                
                 // Add submit event to the form
                 contactForm.addEventListener("submit", function (e) {
                     // Prevent form default behavior
                     e.preventDefault();
-        
+                    
+                    // Validate form fields
+                    if (!nameInput.value || !emailInput.value || !messageInput.value) {
+                        alert("Please fill out all required fields.");
+                        return;
+                    }
+                    
+                    // Validate email format
+                    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailPattern.test(emailInput.value)) {
+                        alert("Please enter a valid email address.");
+                        return;
+                    }
+                    
                     // Change button text
                     submitBtn.innerText = "Just A Moment...";
-        
-                    // Get all input field values including subject
+                    
+                    // Get all input field values
                     const inputFields = {
                         name: nameInput.value,
                         email: emailInput.value,
+                        phone: phoneInput.value,
                         subject: subjectInput.value,
                         message: messageInput.value
                     };
-        
-                    // Send the email (Add service, template ID, and input field values)
+                    
+                    // Send the email
                     emailjs.send(serviceID, templateID, inputFields)
                         .then(function () {
                             // Change button text
                             submitBtn.innerText = "Message Sent Successfully";
-        
+                            
                             // Clear out all input fields
                             nameInput.value = "";
                             emailInput.value = "";
+                            phoneInput.value = "";
+                            subjectInput.value = "";
                             messageInput.value = "";
                         })
                         .catch(function (error) {
                             // Log the error
                             console.error("Error:", error);
-        
+                            
                             // Change button text
                             submitBtn.innerText = "Something went wrong";
                         });
                 });
             });
-        </script>        
-        
+        </script>                     
     </header>
 
     <section>
