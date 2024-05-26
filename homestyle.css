@@ -59,8 +59,8 @@ header img {
 
 /* Image Slider */
 .image-container {
-    width: 410px;
-    height: 410px;
+    width: 400px;
+    height: 350px;
     transform-style: preserve-3d;
     transform: perspective(1000px) rotateY(0deg);
     transition: transform .7s;
@@ -375,12 +375,27 @@ button:focus {
     padding-bottom: 0!important;
 }
 
-/* Mobile Media Query */
+.konturLogoAnimated {
+        width: 275px;
+        height: 275px;
+}
+
+@media (min-width: 1000px) {
+    .konturLogoAnimated {
+        width: 400px;
+        height: 400px;
+    }
+}
+
+/* .btn-container {
+    display: block;
+} */
 
 @media (max-width: 768px) {
 
     /* Button Container */
     .btn-container {
+        display: none;
         flex-direction: column;
         align-items: center;
     }
@@ -394,6 +409,7 @@ button:focus {
     .image-container {
         width: 50%;
         height: auto;
+        margin-bottom: 20vh;
     }
 
     /* Image Transform */
@@ -410,7 +426,7 @@ button:focus {
 
     /* Section Margin */
     section {
-        margin-bottom: 20px;
+        margin-bottom: 10px;
     }
 
     /* Bottom Photo */
@@ -422,5 +438,34 @@ button:focus {
     .img {
         width: 50px;
         height: 50px;
+    }
+}
+
+.homeHeader {
+    margin-bottom: 0px;
+}
+
+@media (min-width: 1000px) {
+    .homeHeader {
+        margin-bottom: 21vh;
+    }
+}
+
+.pageWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.gtaMap {
+    width: 225px; 
+    height: 200px;
+}
+
+@media (min-width: 1000px) {
+    .gtaMap {
+        width: 450px; 
+        height: 400px;
     }
 }
