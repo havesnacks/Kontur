@@ -468,7 +468,8 @@ button:focus {
 
 @media (max-width: 768px) {
     .gtaMap {
-        width: 250px; 
-        height: 200px;
+        width: 150px; 
+        height: 125px;
+        background-color: green;
     }
 }
