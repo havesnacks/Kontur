@@ -455,13 +455,13 @@ button:focus {
 }
 
 .gtaMap {
-    width: auto;
-    height: 150px;
+    width: 250px; 
+    height: 200px;
 }
 
 @media (min-width: 1000px) {
     .gtaMap {
-        width: 450px; 
-        height: 400px;
+        width: 250px; 
+        height: 200px;
     }
 }
