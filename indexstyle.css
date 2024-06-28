@@ -32,24 +32,23 @@ img {
     transform: translate(-50%, -50%);
     height: 115%;
     width: auto;
-    opacity: 0;
+    display: none;
 }
 
 .imageStyle {
     width: 300px;
     height: 300px;
+    display: none;
 }
 
-@media (min-aspect-ratio: 4/3) {
-    img {
-        height: auto;
-        width: 100%;
+
+@media (min-width: 1000px) {
+    .imageStyle {
+        display: block;
     }
-}
 
-@media (max-aspect-ratio: 3/5) {
-    img {
-        left: 30%;
+    .imageStyle img {
+        display: block;
     }
 }
 
@@ -85,4 +84,10 @@ img {
     top: 90vh;
     left: 95vw;
     cursor: pointer;
+}
+
+@media (min-width: 600px) {
+    .enter-button {
+        left: 90vw;
+    }
 }

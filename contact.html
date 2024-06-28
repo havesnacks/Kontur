@@ -1,147 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kontur: Contact Us</title>
-    <link rel="stylesheet" href="homestyle.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-Wpi5f/+MBvg8WJ5Wt5u9rKmy1c2IDuU/5zg6v3JuUcEmuqWlhfHsi+yVJc23myQIDxGlhqP3uPOJHtY/2bDn3A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="icon" href="assets/favicon.png">
-</head>
-<body>
+    <link rel="stylesheet" href="homestyle.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-Wpi5f/+MBvg8WJ5Wt5u9rKmy1c2IDuU/5zg6v3JuUcEmuqWlhfHsi+yVJc23myQIDxGlhqP3uPOJHtY/2bDn3A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="icon" href="assets/favicon.png" />
+  </head>
+  <body>
     <div class="dropdown">
-        <button class="dropbtn">MENU</button>
-        <div class="dropdown-content">
-            <a href="index.html">RETURN</a>
-            <a href="home.html">HOME</a>
-            <a href="gallery.html">GALLERY</a>
-            <a href="FAQ.html">FAQ</a>
-            <a href="contact.html">CONTACT US</a>
-        </div>
+      <button class="dropbtn">MENU</button>
+      <div class="dropdown-content">
+        <a href="index.html">RETURN</a>
+        <a href="home.html">HOME</a>
+        <a href="gallery.html">GALLERY</a>
+        <a href="FAQ.html">FAQ</a>
+        <a href="contact.html">CONTACT US</a>
+      </div>
     </div>
 
     <header>
-        <a href="home.html">
-            <img src="assets/logo.png" alt="Header Image">
-        </a>
-        <h2>SEND US A MESSAGE</h2>
-        <form id="contact-form">
-            <input type="text" name="name" placeholder="Your Name"><br>
-            <input type="email" name="email" placeholder="Your Email"><br>
-            <input type="text" name="phone" placeholder="Your Phone Number"><br>
-            <input type="text" name="subject" placeholder="Subject"><br>
-            <textarea name="message" placeholder="Your Message"></textarea><br>
-            <button type="submit">Send</button>
-        </form>
-        
-        <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-        <script>
-            document.addEventListener("DOMContentLoaded", function () {
-                const contactForm = document.querySelector("#contact-form");
-                const submitBtn = document.querySelector("button[type='submit']");
-                const nameInput = document.querySelector("input[name='name']");
-                const emailInput = document.querySelector("input[name='email']");
-                const phoneInput = document.querySelector("input[name='phone']");
-                const subjectInput = document.querySelector("input[name='subject']");
-                const messageInput = document.querySelector("textarea[name='message']");
-                
-                // Public Key, Service ID, and Template ID
-                const publickey = "GQlOyAAikPDCKaE9x";
-                const serviceID = "service_x3zsr7h";
-                const templateID = "template_wh4gvaa";
-                
-                // Initialize emailJS with public key
-                emailjs.init(publickey);
-                
-                // Add submit event to the form
-                contactForm.addEventListener("submit", function (e) {
-                    // Prevent form default behavior
-                    e.preventDefault();
-                    
-                    // Validate form fields
-                    if (!nameInput.value || !emailInput.value || !messageInput.value) {
-                        alert("Please fill out all required fields.");
-                        return;
-                    }
-                    
-                    // Validate email format
-                    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                    if (!emailPattern.test(emailInput.value)) {
-                        alert("Please enter a valid email address.");
-                        return;
-                    }
-                    
-                    // Change button text
-                    submitBtn.innerText = "Just A Moment...";
-                    
-                    // Get all input field values
-                    const inputFields = {
-                        name: nameInput.value,
-                        email: emailInput.value,
-                        phone: phoneInput.value,
-                        subject: subjectInput.value,
-                        message: messageInput.value
-                    };
-                    
-                    // Send the email
-                    emailjs.send(serviceID, templateID, inputFields)
-                        .then(function () {
-                            // Change button text
-                            submitBtn.innerText = "Message Sent Successfully";
-                            
-                            // Clear out all input fields
-                            nameInput.value = "";
-                            emailInput.value = "";
-                            phoneInput.value = "";
-                            subjectInput.value = "";
-                            messageInput.value = "";
-                        })
-                        .catch(function (error) {
-                            // Log the error
-                            console.error("Error:", error);
-                            
-                            // Change button text
-                            submitBtn.innerText = "Something went wrong";
-                        });
-                });
-            });
-        </script>                     
+      <a href="home.html">
+        <img src="assets/logo.png" alt="Header Image" />
+      </a>
+      <h2>SEND US A MESSAGE</h2>
+      <form id="contact-form">
+        <input type="text" name="name" placeholder="Your Name" /><br />
+        <input type="email" name="email" placeholder="Your Email" /><br />
+        <input type="text" name="phone" placeholder="Your Phone Number" /><br />
+        <input type="text" name="subject" placeholder="Subject" /><br />
+        <textarea name="message" placeholder="Your Message"></textarea><br />
+        <button type="submit">Send</button>
+      </form>
+
+      <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const contactForm = document.querySelector("#contact-form");
+          const submitBtn = document.querySelector("button[type='submit']");
+          const nameInput = document.querySelector("input[name='name']");
+          const emailInput = document.querySelector("input[name='email']");
+          const phoneInput = document.querySelector("input[name='phone']");
+          const subjectInput = document.querySelector("input[name='subject']");
+          const messageInput = document.querySelector(
+            "textarea[name='message']"
+          );
+
+          // Public Key, Service ID, and Template ID
+          const publickey = "GQlOyAAikPDCKaE9x";
+          const serviceID = "service_x3zsr7h";
+          const templateID = "template_wh4gvaa";
+
+          // Initialize emailJS with Public Key
+          emailjs.init(publickey);
+
+          // Add Event to Form
+          contactForm.addEventListener("submit", function (e) {
+            // Prevent Default Behavior
+            e.preventDefault();
+
+            // Validate Form Fields
+            if (!nameInput.value || !emailInput.value || !messageInput.value) {
+              alert("Please fill out all required fields.");
+              return;
+            }
+
+            // Validate Email Format
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(emailInput.value)) {
+              alert("Please enter a valid email address.");
+              return;
+            }
+
+            // Change Button Text
+            submitBtn.innerText = "Just A Moment...";
+
+            // Retrieve all Inputs
+            const inputFields = {
+              name: nameInput.value,
+              email: emailInput.value,
+              phone: phoneInput.value,
+              subject: subjectInput.value,
+              message: messageInput.value,
+            };
+
+            // Send Email
+            emailjs
+              .send(serviceID, templateID, inputFields)
+              .then(function () {
+                // Change Button Text
+                submitBtn.innerText = "Message Sent Successfully";
+
+                // Clear Fields
+                nameInput.value = "";
+                emailInput.value = "";
+                phoneInput.value = "";
+                subjectInput.value = "";
+                messageInput.value = "";
+              })
+              .catch(function (error) {
+                // Log Error
+                console.error("Error:", error);
+
+                // Change Button Text
+                submitBtn.innerText = "Something went wrong";
+              });
+          });
+        });
+      </script>
     </header>
 
     <section>
-        <h2>CONTACT US</h2>
-        <div class="contact-info">
-            <h3>Based In</h3>
-            <p>Toronto, Ontario, Canada</p>
-        </div>
-    
-        <div class="contact-info">
-            <h3>Hours</h3>
-            <p>Monday - Friday: 10am - 7pm</p>
-        </div>
-    
-        <div class="contact-info">
-            <h3>Phone</h3>
-            <p>+1 (437) 450 5767</p>
-        </div>
-    
-        <div class="contact-info">
-            <h3>Email</h3>
-            <p>konturdesigns@gmail.com</p>
-        </div>
+      <h2>CONTACT US</h2>
+      <div class="contact-info">
+        <h3>Based In</h3>
+        <p>Toronto, Ontario, Canada</p>
+      </div>
 
-        <img src="assets/map.png" alt="GTA Map" width="450px" height="400px">
+      <div class="contact-info">
+        <h3>Hours</h3>
+        <p>Monday - Friday: 10am - 7pm</p>
+      </div>
+
+      <div class="contact-info">
+        <h3>Phone</h3>
+        <p>+1 (437) 450 5767</p>
+      </div>
+
+      <div class="contact-info">
+        <h3>Email</h3>
+        <p>konturdesigns@gmail.com</p>
+      </div>
+
+      <img class="gtaMap" src="assets/map.png" alt="GTA Map" />
     </section>
-    
-    <footer>
-        <p>&copy; Kontur Design. All rights reserved.</p>
-    </footer>
-    
-    <div class="arrow-button">
-        <a href="#top">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-up"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
-        </a>
-    </div>
 
-</body>
+    <footer>
+      <p>&copy; Kontur Design. All rights reserved.</p>
+    </footer>
+
+    <div class="arrow-button">
+      <a href="#top">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="32"
+          height="32"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="black"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="feather feather-arrow-up"
+        >
+          <line x1="12" y1="19" x2="12" y2="5"></line>
+          <polyline points="5 12 12 5 19 12"></polyline>
+        </svg>
+      </a>
+    </div>
+  </body>
 </html>
