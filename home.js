@@ -5,24 +5,28 @@ const nextEl = document.getElementById("next");
 let x = 0;
 let timer;
 
+const rotateAmount = 90;
+const rotationInterval = 3000;
+
 prevEl.addEventListener("click", () => {
-  x += 90;
-  clearTimeout(timer);
-  updateGallery();
+  changeRotation(rotateAmount);
 });
 
 nextEl.addEventListener("click", () => {
-  x -= 90;
+  changeRotation(-rotateAmount);
+});
+
+function changeRotation(amount) {
+  x += amount;
   clearTimeout(timer);
   updateGallery();
-});
+}
 
 function updateGallery() {
   imageContainerEl.style.transform = `perspective(1000px) rotateY(${x}deg)`;
   timer = setTimeout(() => {
-    x -= 90;
-    updateGallery();
-  }, 3000);
+    changeRotation(-rotateAmount);
+  }, rotationInterval);
 }
 
 updateGallery();

@@ -1,11 +1,11 @@
-/* Global Reset */
+/* & Global Reset */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-/* Base styles */
+/* & Base styles */
 body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-weight: 400;
@@ -26,9 +26,13 @@ h1 {
 h2, p, ul {
     font-family: sans-serif;
     margin-top: 15px;
-    margin-bottom: -10px;
+    margin-bottom: 10px;
     text-align: center;
     padding: 25px;
+}
+
+.mobile-text {
+    display: none;
 }
 
 ul {
@@ -57,7 +61,7 @@ header img {
     margin-top: -70px;
 }
 
-/* Instagram and Contact Button Spacing */
+/* & Instagram and Contact Button Spacing */
 .button-container {
     display: flex;
     flex-direction: column;
@@ -66,7 +70,7 @@ header img {
     margin-top: 25px;
 }
 
-/* Image Slider */
+/* & Image Slider */
 .image-container {
     width: 500px;
     height: 450px;
@@ -170,7 +174,7 @@ section p {
     transition: transform 0.3s ease;
 }
 
-/* Scrollbar */
+/* & Scrollbar */
 ::-webkit-scrollbar {
     width: 8px;
 }
@@ -184,7 +188,7 @@ section p {
     border-radius: 0;
 }
 
-/* Drop Menu */
+/* & Drop Menu */
 .dropbtn {
     background-color: #ffffff;
     color: #000000;
@@ -219,33 +223,50 @@ section p {
     display: block;
 }
 
-/* Gallery Override */
-.tz-gallery .row > div {
-    padding: 2px;
+/* & Gallery Container */
+.gallery-container {
+    padding: 15px;
 }
 
-.tz-gallery .lightbox img {
+/* Gallery Row */
+.tz-gallery .row {
+    margin-bottom: 30px;
+}
+
+/* Column Padding */
+.tz-gallery .row .col-md-4,
+.tz-gallery .row .col-md-8 {
+    padding: 15px;
+}
+
+/* Image Styling */
+.tz-gallery img {
     width: 100%;
-    border-radius: 0;
-    position: relative;
+    height: auto;
+    object-fit: cover;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
 }
 
+/* Lightbox Overlay Icon */
 .tz-gallery .lightbox:before {
     position: absolute;
     top: 50%;
     left: 50%;
-    margin-top: -13px;
-    margin-left: -13px;
+    margin-top: -20px;
+    margin-left: -20px;
     opacity: 0;
     color: #6D6A75;
-    font-size: 26px;
+    font-size: 40px;
     font-family: 'Glyphicons Halflings';
     content: '\e003';
     pointer-events: none;
     z-index: 9000;
-    transition: 0.4s;
+    transition: opacity 0.4s ease-out, font-size 0.4s ease-out;
 }
 
+/* Lightbox Overlay Background */
 .tz-gallery .lightbox:after {
     position: absolute;
     top: 0;
@@ -253,27 +274,38 @@ section p {
     width: 100%;
     height: 100%;
     opacity: 0;
-    background-color: rgba(0, 0, 0, 0.7); /* Transparent Grey */
+    background-color: rgba(0, 0, 0, 0.7);
     content: '';
-    transition: 0.4s;
+    transition: opacity 0.4s ease-out;
 }
 
-.tz-gallery .lightbox:hover:after,
+/* Hover Effects */
+.tz-gallery .lightbox:hover:after {
+    opacity: 0;
+}
+
 .tz-gallery .lightbox:hover:before {
-    opacity: 1;
+    opacity: 0;
 }
 
+.tz-gallery .lightbox:hover img {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+/* BaguetteBox Button */
 .baguetteBox-button {
     background-color: transparent !important;
 }
 
+/* Responsive Adjustments */
 @media(max-width: 768px) {
     body {
         padding: 0;
     }
 }
 
-/* Back to Top */
+/* & Back to Top Arrow */
 a[href="#top"] img {
     width: 25px; /* Increase Width */
     height: 25px; /* Increase Height */
@@ -282,7 +314,7 @@ a[href="#top"] img {
     left: 30px; /* Adjust Horizontally */
 }
 
-/* Contact Us */
+/* & Contact Us Button */
 .button {
     display: inline-block;
     padding: 15px 30px;
@@ -299,7 +331,7 @@ a[href="#top"] img {
     background-color: #6D6A75;
 }
 
-/* Form */
+/* & Input Form */
 #contact-form {
     max-width: 500px;
     margin: 30px auto;
@@ -310,7 +342,7 @@ a[href="#top"] img {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
-/* Input fields */
+/* & Input Fields */
 input[type="text"],
 input[type="email"],
 textarea {
@@ -324,12 +356,12 @@ textarea {
     transition: border-color 0.3s ease-in-out;
 }
 
-/* Textarea Styles */
+/* & Textarea Styles */
 textarea {
     height: 120px;
 }
 
-/* Button Styles */
+/* & Button Styles */
 button[type="submit"] {
     width: 100%;
     padding: 10px;
@@ -345,12 +377,12 @@ button[type="submit"]:hover {
     background-color: #6D6A75;
 }
 
-/* Placeholder Style */
+/* & Placeholder Style */
 ::placeholder {
     color: #aaa;
 }
 
-/* Remove Default on Focus */
+/* & Remove Default on Focus */
 input:focus,
 textarea:focus,
 button:focus {
@@ -377,7 +409,7 @@ button:focus {
     align-items: center;
 }
 
-/* FAQ */
+/* & FAQ Tabs */
 .faq-copy {
     width: 80%;
     text-align: justify;
@@ -394,7 +426,7 @@ button:focus {
     border: none;
     text-align: center;
     outline: none;
-    font-size: 26px;
+    font-size: 24px;
     font-weight: bold;
     transition: background-color 0.3s ease;
     border-radius: 50px;
@@ -437,13 +469,14 @@ button:focus {
     background-color: #6D6A75;
 }
 
-/* Add Animation */
+/* & Kontur Animation */
 .konturLogoAnimated {
         width: 275px;
         height: 275px;
         margin: 40px 0px 0px 0px;
 }
 
+/* & Media Queries */
 @media (min-width: 1000px) {
     .konturLogoAnimated {
         width: 400px;
@@ -507,7 +540,7 @@ button:focus {
 
 @media (min-width: 1000px) {
     .homeHeader {
-        margin-bottom: 21vh;
+        margin-bottom: 160px;
     }
 }
 
@@ -523,7 +556,22 @@ button:focus {
     height: 350px;
 }
 
-@media (max-width: 768px) {
+@media only screen and (min-width: 300px) and (max-width: 1400px) {
+    .image-container {
+        width: 75%;
+        height: auto;
+        margin-bottom: 20vh;
+    }
+
+    .home-text {
+        display: none;
+    }
+
+    .mobile-text {
+        display: block;
+        margin-top: 50px;
+    }
+
     .gtaMap {
         width: auto; 
         height: 225px;
@@ -555,5 +603,18 @@ button:focus {
         background-color: #f9f9f9;
         border-radius: 50px;
         margin-bottom: 15px;
+    }
+
+    .tz-gallery .row > div {
+        padding: 2px;
+    }
+    
+    .tz-gallery .lightbox img {
+        width: 98%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 0;
+        margin: auto;
     }
 }
