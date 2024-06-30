@@ -503,8 +503,9 @@ button:focus {
 
     /* & Header Image */
     header img {
-        max-width: 150px;
-        margin-top: 0px;
+        max-width: 200px;
+        height: auto;
+        margin-top: -70px;
         margin-bottom: 10px;
     }
 
