@@ -562,7 +562,9 @@ button:focus {
     height: 350px;
 }
 
-@media only screen and (min-width: 300px) and (max-width: 1400px) {
+/* & Media Queries */
+@media only screen and (min-device-width: 300px) and (max-device-width: 1400px) and (orientation: portrait), 
+    only screen and (min-device-width: 300px) and (max-device-width: 1400px) and (orientation: landscape) {
     .image-container {
         opacity: 0;
     }
