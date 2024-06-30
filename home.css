@@ -574,7 +574,7 @@ button:focus {
 
     .gtaMap {
         width: auto; 
-        height: 250px;
+        height: 200px;
     }
 
     .collapsible {
@@ -622,7 +622,7 @@ button:focus {
     }
 
     #contact-form {
-        max-width: 350px;
+        max-width: 300px;
     }
 }
 
