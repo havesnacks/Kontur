@@ -81,7 +81,7 @@ header img {
     transform-style: preserve-3d;
     transform: perspective(1000px) rotateY(0deg);
     transition: transform .7s;
-    margin: 0 auto; /* Centering for Images */
+    margin: 0 auto; /* * Centering for Images */
 }
 
 .image-container span {
@@ -116,11 +116,11 @@ header img {
 .btn {
     color: black;
     border: none;
-    padding: 10px 20px; /* Adjust Padding */
+    padding: 10px 20px; /* * Adjust Padding */
     border-radius: 5px;
     cursor: pointer;
     font-size: 20px;
-    margin: 0 10px; /* Add Margin to Spread Buttons */
+    margin: 0 10px; /* * Add Margin to Spread Buttons */
     margin-bottom: 20px;
     display: flex;
     align-items: center;
@@ -234,18 +234,15 @@ section p {
     padding: 15px;
 }
 
-/* Gallery Row */
 .tz-gallery .row {
     margin-bottom: 30px;
 }
 
-/* Column Padding */
 .tz-gallery .row .col-md-4,
 .tz-gallery .row .col-md-8 {
     padding: 15px;
 }
 
-/* Image Styling */
 .tz-gallery img {
     width: 100%;
     height: auto;
@@ -255,7 +252,6 @@ section p {
     transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
 }
 
-/* Lightbox Overlay Icon */
 .tz-gallery .lightbox:before {
     position: absolute;
     top: 50%;
@@ -272,7 +268,6 @@ section p {
     transition: opacity 0.4s ease-out, font-size 0.4s ease-out;
 }
 
-/* Lightbox Overlay Background */
 .tz-gallery .lightbox:after {
     position: absolute;
     top: 0;
@@ -285,7 +280,6 @@ section p {
     transition: opacity 0.4s ease-out;
 }
 
-/* Hover Effects */
 .tz-gallery .lightbox:hover:after {
     opacity: 0;
 }
@@ -299,25 +293,18 @@ section p {
     box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
 
-/* BaguetteBox Button */
 .baguetteBox-button {
     background-color: transparent !important;
 }
 
-/* Responsive Adjustments */
-@media(max-width: 768px) {
-    body {
-        padding: 0;
-    }
-}
 
 /* & Back to Top Arrow */
 a[href="#top"] img {
-    width: 25px; /* Increase Width */
-    height: 25px; /* Increase Height */
+    width: 25px; /* * Increase Width */
+    height: 25px; /* * Increase Height */
     position: left;
-    top: -40px; /* Adjust Vertically */
-    left: 30px; /* Adjust Horizontally */
+    top: -40px; /* * Adjust Vertically */
+    left: 30px; /* * Adjust Horizontally */
 }
 
 /* & Contact Us Button */
@@ -362,7 +349,7 @@ textarea {
     transition: border-color 0.3s ease-in-out;
 }
 
-/* & Textarea Styles */
+/* & Text-area Styles */
 textarea {
     height: 120px;
 }
@@ -492,48 +479,46 @@ button:focus {
 
 @media (max-width: 768px) {
 
-    /* Button Container */
+    /* & Button Container */
     .btn-container {
         display: none;
         flex-direction: column;
         align-items: center;
     }
 
-    /* Buttons */
     .btn {
         margin: 10px 0;
     }
 
-    /* Image Container */
+    /* & Image Container */
     .image-container {
         width: 50%;
         height: auto;
         margin-bottom: 20vh;
     }
 
-    /* Image Transform */
     .image-container span {
         transform: rotateY(calc(var(--i) * 90deg)) translateZ(200px);
     }
 
-    /* Header Image */
+    /* & Header Image */
     header img {
         max-width: 150px;
         margin-top: 0px;
         margin-bottom: 10px;
     }
 
-    /* Section Margin */
+    /* & Section Margin */
     section {
         margin-bottom: 10px;
     }
 
-    /* Bottom Photo */
+    /* & Bottom Photo */
     .bottom-photo img {
         max-width: 100%;
     }
 
-    /* Image Size */
+    /* & Image Size */
     .img {
         width: 50px;
         height: 50px;
@@ -563,10 +548,9 @@ button:focus {
 }
 
 /* & Media Queries */
-@media only screen and (min-device-width: 300px) and (max-device-width: 1400px) and (orientation: portrait), 
-    only screen and (min-device-width: 300px) and (max-device-width: 1400px) and (orientation: landscape) {
+@media only screen and (max-width: 768px) {
     .image-container {
-        opacity: 0;
+        display: none;
     }
 
     .home-text {
@@ -589,12 +573,12 @@ button:focus {
 
     .gtaMap {
         width: auto; 
-        height: 225px;
+        height: 300px;
     }
-    
+
     .collapsible {
         background-color: #eee;
-        color: #000000;
+        color: #000;
         padding: 15px 30px;
         width: 100%;
         border: none;
@@ -606,11 +590,11 @@ button:focus {
         border-radius: 50px;
         margin-bottom: 15px;
     }
-    
+
     .active, .collapsible:hover {
         background-color: #ccc;
     }
-    
+
     .content {
         padding: 0 18px;
         display: none;
@@ -623,17 +607,35 @@ button:focus {
     .tz-gallery .row > div {
         padding: 2px;
     }
-    
+
     .tz-gallery .lightbox img {
-        width: 98%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 0;
+        width: 100%;
+        height: auto;
+        display: block;
         margin: auto;
+        border-radius: 0;
     }
 
     .btn {
         opacity: 0;
+    }
+}
+
+/* & Styles Large Screen Sizes */
+@media only screen and (min-width: 769px) {
+    .image-container {
+        display: block;
+    }
+}
+
+.home-text, .mobile-text, .mobile-text-two, .konturLogoAnimated, .tz-gallery .row > div, .tz-gallery .lightbox img, .btn {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@media (min-width: 769px) and (max-width: 1000px) {
+    .image-container {
+        margin-top: 22vh;
     }
 }
