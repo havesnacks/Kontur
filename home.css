@@ -35,6 +35,10 @@ h2, p, ul {
     display: none;
 }
 
+.mobile-text-two {
+    display: none;
+}
+
 ul {
     list-style-type: square;
     padding-left: 20px;
@@ -99,42 +103,44 @@ header img {
     filter: grayscale(100%);
 }
 
+/* & Image Buttons */
 .btn-container {
     display: flex;
     justify-content:center;
     align-items: flex-end;
     position: relative;
     width: 100%;
-    opacity: 0;
+    gap: 10px
 }
 
 .btn {
-    background-color: rgb(0, 0, 0);
-    color: white;
+    color: black;
     border: none;
     padding: 10px 20px; /* Adjust Padding */
     border-radius: 5px;
     cursor: pointer;
     font-size: 20px;
     margin: 0 10px; /* Add Margin to Spread Buttons */
-}
-
-.btn:hover {
-    filter: brightness(1.5);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
 }
 
 .image-container span img:hover {
     filter: none;
 }
 
-#prev {
-    left: 20%;
+.btn i {
+    font-size: 24px;
+    font-weight: bold;
+    transition: transform.3s;
 }
 
-#next {
-    right: 20%;
+#next i {
+    transform: none;
 }
 
+/* & Sections */
 main, section, .bottom-photo {
     padding: 0;
 }
@@ -558,9 +564,7 @@ button:focus {
 
 @media only screen and (min-width: 300px) and (max-width: 1400px) {
     .image-container {
-        width: 75%;
-        height: auto;
-        margin-bottom: 20vh;
+        opacity: 0;
     }
 
     .home-text {
@@ -569,7 +573,16 @@ button:focus {
 
     .mobile-text {
         display: block;
-        margin-top: 50px;
+        margin-top: -25vh;
+    }
+
+    .mobile-text-two {
+        display: block;
+        margin-top: -15vh;
+    }
+
+    .konturLogoAnimated {
+        margin-top: -15vh;
     }
 
     .gtaMap {
@@ -616,5 +629,9 @@ button:focus {
         align-items: center;
         border-radius: 0;
         margin: auto;
+    }
+
+    .btn {
+        opacity: 0;
     }
 }
