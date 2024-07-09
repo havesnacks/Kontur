@@ -1,3 +1,4 @@
+// & Gallery
 const imageContainerEl = document.querySelector(".image-container");
 const prevEl = document.getElementById("prev");
 const nextEl = document.getElementById("next");

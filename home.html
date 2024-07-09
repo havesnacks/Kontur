@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-Wpi5f/+MBvg8WJ5Wt5u9rKmy1c2IDuU/5zg6v3JuUcEmuqWlhfHsi+yVJc23myQIDxGlhqP3uPOJHtY/2bDn3A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="icon" href="assets/favicon.png">
 </head>
-<body>
+<body id="top">
     
     <div class="dropdown">
         <button class="dropbtn">MENU</button>
@@ -84,6 +84,24 @@
             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-up"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
         </a>
     </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const links = document.querySelectorAll('a[href^="#"]');
+            links.forEach((link) => {
+                link.addEventListener("click", function (event) {
+                    event.preventDefault();
+                    const targetId = this.getAttribute("href").slice(1);
+                    const targetElement = document.getElementById(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: "smooth" });
+                    } else if (targetId === "top") {
+                        window.scrollTo({ top: 0, behavior: "smooth" });
+                    }
+                });
+            });
+        });
+    </script>
     
     <script src="home.js" async defer></script>
 </body>
